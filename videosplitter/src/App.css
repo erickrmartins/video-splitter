@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #0F172A 0%,
+        #1D4ED8 55%,
+        #60A5FA 100%
+    );
+}
+
+#root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ui {
+    width: 520px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 18px;
+
+    box-shadow: 0 20px 45px rgba(0, 0, 0, .25);
+}
+
+.ui h1 {
+    text-align: center;
+    color: #2563EB;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.ui > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 15px;
+
+    border: 1px solid #2563EB;
+    border-radius: 12px;
+
+    background: #F8FAFC;
+}
+
+.ui p {
+    color: #64748B;
+    font-size: 14px;
+
+    word-break: break-word;
+}
+
+input[type="number"] {
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    border: 1px solid #2563EB;
+
+    font-size: 15px;
+
+    transition: .2s;
+}
+
+input[type="number"]:focus {
+
+    outline: none;
+
+    border-color: #2563EB;
+
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .15);
+
+}
+
+.btnTypeI {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563EB;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+.btnTypeI:hover {
+
+    background: #1D4ED8;
+
+}
+
+.btnTypeII {
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #2563EB,
+        #3B82F6
+    );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+.btnTypeII:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 20px rgba(37,99,235,.35);
+
+}
+
+.btnTypeII:active {
+
+    transform: scale(.98);
+
+}
