@@ -8,15 +8,21 @@ function App() {
       <h1>Divisor de Videos</h1>
       <div>
         <button className="btnTypeI">Selecionar arquivo</button>
-        <p>Caminho: </p>
+        <span className="selectedFile">Nenhum arquivo selecionado</span>
       </div>
       <div>
         <button className="btnTypeI">Selecionar destino</button>
-        <p>Destino: </p>
+        <span className="selectedDirectory">Nenhum destino selecionado</span>
       </div>
       <div>
-        <input type="number" placeholder="Duração de cada parte" />
-        
+        <div>
+          <input type="number" placeholder="Duração de cada parte" />
+          <select>
+            <option>Segundos</option>
+            <option>Minutos</option>
+            <option>Hora</option>
+          </select>
+        </div>
       </div>
       <button className="btnTypeII">Dividir</button>
     </div>
