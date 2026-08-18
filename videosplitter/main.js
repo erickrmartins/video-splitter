@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain, dialog } from "electron";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -25,4 +25,37 @@ function createWindow() {
 
 }
 
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+    ipcMain.handle("select-video", async () => {
+        const result = await dialog.showOpenDialog({
+            properties: ["openFile"],
+            filters: [
+                {
+                    name: "Video Extension",
+                    extensions: ["mp4", "mkv", "avi", "mov", "webm"]
+                }
+            ]
+        });
+
+        if (result.canceled) {
+            return null;
+        }
+
+        return result.filePaths[0];
+    });
+
+    ipcMain.handle("select-directory", async () => {
+        const result = await dialog.showOpenDialog({
+            properties: ["openDirectory"],
+        });
+
+        if (result.canceled) {
+            return null;
+        }
+
+        return result.filePaths[0];
+
+    });
+
+    createWindow();
+}); 
