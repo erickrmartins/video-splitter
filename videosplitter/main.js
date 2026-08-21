@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, dialog } from "electron";
+import { app, BrowserWindow, ipcMain, dialog, shell } from "electron";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -55,6 +55,17 @@ app.whenReady().then(() => {
 
         return result.filePaths[0];
 
+    });
+
+    ipcMain.handle("open-output-directory", async (event, outputPath) => {
+        const errorMessage = await shell.openPath(path.normalize(outputPath));
+
+        if (errorMessage) {
+            console.error("Erro ao abrir o diretório:", errorMessage);
+            return false;
+        }
+
+        return true;
     });
 
     createWindow();

@@ -1,4 +1,4 @@
-const {contextBridge, ipcRenderer} = require("electron");
+const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("electronAPI", {
     selectVideo: () => {
@@ -7,5 +7,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
     selectDirectory: () => {
         return ipcRenderer.invoke("select-directory");
-    }
+    },
+
+    goToOutputDirectory: (outputPath) => ipcRenderer.invoke("open-output-directory", outputPath)
 });
